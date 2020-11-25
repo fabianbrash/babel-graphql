@@ -1,0 +1,22 @@
+{
+  "name": "babel-demo-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel ./src/index.js -d lib && node ./lib/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.19.0",
+    "express": "^4.17.1",
+    "graphql": "^15.4.0"
+  }
+}
