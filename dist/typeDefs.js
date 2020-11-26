@@ -1,13 +1,14 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.typeDefs = void 0;
+
 var _apolloServerExpress = require("apollo-server-express");
 
-var _express = _interopRequireDefault(require("express"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  type Query {\n      hello: String!\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  type Query {\n    hello: String!\n    cats: [Cat!]!\n  }\n\n  type Cat {\n      id: ID!\n      name: String!\n  }\n\n  type Mutation {\n      createCat(name: String!): Cat!\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -18,15 +19,7 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var app = (0, _express["default"])();
-var typeDefs = (0, _apolloServerExpress.gql)(_templateObject());
-var resolvers = {
-  Query: {
-    hello: function hello() {
-      return "hello";
-    }
-  }
-}; // A schema is a collection of type definitions (hence "typeDefs")
+var typeDefs = (0, _apolloServerExpress.gql)(_templateObject()); // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
 // your data.
 
@@ -47,15 +40,4 @@ var resolvers = {
   }
 `;*/
 
-var server = new _apolloServerExpress.ApolloServer({
-  typeDefs: typeDefs,
-  resolvers: resolvers
-});
-server.applyMiddleware({
-  app: app
-});
-app.listen({
-  port: 4000
-}, function () {
-  return console.log("\uD83D\uDE80 Server ready at http://localhost:4000".concat(server.graphqlPath));
-});
+exports.typeDefs = typeDefs;

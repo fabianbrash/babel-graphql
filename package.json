@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./src/index.js -d lib && node ./lib/index.js"
+    "build": "babel ./src/index.js -d dist && node ./dist/index.js",
+    "build-prod": "babel ./src -d dist && node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
   "dependencies": {
     "apollo-server-express": "^2.19.0",
     "express": "^4.17.1",
-    "graphql": "^15.4.0"
+    "graphql": "^15.4.0",
+    "mongoose": "^5.10.16"
   }
 }
