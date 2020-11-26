@@ -15,6 +15,7 @@ import mongoose from 'mongoose';
       
       server.applyMiddleware({ app });
       // useNewUrlParser: true
+      // process.env.ATLAS_PW
       mongoose.connect('mongodb+srv://user1:passwordxxx@cluster0.wlhbw.mongodb.net/db1?retryWrites=true&w=majority', {
         useNewUrlParser: true,
         useUnifiedTopology: true
